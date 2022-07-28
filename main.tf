@@ -27,8 +27,6 @@ resource "azurerm_storage_account" "storage_account" {
   routing {
     choice = var.routing
   }
-
-
 }
 
 # Creates Storage Account network rules
