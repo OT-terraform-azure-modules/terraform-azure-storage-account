@@ -37,9 +37,6 @@ resource "azurerm_storage_account_network_rules" "net_rules" {
   ip_rules                   = var.net_rules_ip_rules
   virtual_network_subnet_ids = var.net_rules_virtual_network_subnet_ids
   bypass                     = var.net_rules_bypass
-
-
-
 }
 
 

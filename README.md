@@ -220,7 +220,7 @@ containers_list = [
 Name | Description | Type | Default
 ---- | ----------- | ---- | -------
 `name` | Name of the SMB file share | string | `""`
-`quota` | The required size in GB. Defaults to `5120`|string|`""
+`quota` | The required size in GB. Defaults to `5120`|string| `""`
 
 
 ## Outputs

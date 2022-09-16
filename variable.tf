@@ -16,7 +16,6 @@ variable "storage_account_name" {
     condition     = length(var.storage_account_name) > 3 && length(var.storage_account_name) < 24
     error_message = "Storage account name must be between 3 to 24 letters."
   }
-
 }
 
 variable "account_replication_type" {
@@ -27,7 +26,7 @@ variable "account_replication_type" {
 
 variable "account_tier" {
   type        = string
-  description = "(Required)The account tier of storage account. Valid options are Standard or Premium"
+  description = "(Required) The account tier of storage account. Valid options are Standard or Premium"
   default     = ""
 }
 
@@ -44,9 +43,10 @@ variable "account_type" {
 
 variable "account_kind" {
   type        = string
-  description = " (Reduired)Choose an account type that matches your storage needs and optimizes your costs. Valid options are Storage,BlobStorage,BlockBlobStorage,FileStorage,StorageV2"
+  description = " (Reduired) Choose an account type that matches your storage needs and optimizes your costs. Valid options are Storage,BlobStorage,BlockBlobStorage,FileStorage,StorageV2"
   default     = ""
 }
+
 variable "tags" {
   type = map(string)
   default = {
@@ -58,20 +58,18 @@ variable "tags" {
 
 #-------------------------------new-------------------------------------------------------------------
 
-
-
 variable "access_tier" {
-  description = "(Optional)Defines the access tier for BlobStorage and StorageV2 accounts. Valid options are Hot and Cool."
+  description = "(Optional) Defines the access tier for BlobStorage and StorageV2 accounts. Valid options are Hot and Cool."
   default     = "Hot"
 }
 
 variable "min_tls_version" {
-  description = "(Optional)The minimum supported TLS version for the storage account.Possible values are TLS1_0, TLS1_1, and TLS1_2"
+  description = "(Optional) The minimum supported TLS version for the storage account.Possible values are TLS1_0, TLS1_1, and TLS1_2"
   default     = "TLS1_2"
 }
 
 variable "enable_https_traffic_only" {
-  description = " (optional)Boolean flag which forces HTTPS if enabled. Defaults to true"
+  description = " (optional) Boolean flag which forces HTTPS if enabled. Defaults to true"
   type        = bool
   default     = true
 }
@@ -79,7 +77,7 @@ variable "enable_https_traffic_only" {
 #--------------------------------------Networking-----------------------------------------------------
 
 variable "net_rules_default_action" {
-  description = "(Required)Specifies the default action of Allow or Deny when no other rules match. Valid options are Deny or Allow"
+  description = "(Required) Specifies the default action of Allow or Deny when no other rules match. Valid options are Deny or Allow"
   type        = string
   default     = "Deny"
 }
@@ -91,7 +89,7 @@ variable "net_rules_ip_rules" {
 }
 
 variable "net_rules_virtual_network_subnet_ids" {
-  description = " (Optional)A list of virtual network subnet ids to to secure the storage account"
+  description = " (Optional) A list of virtual network subnet ids to to secure the storage account"
   type        = list(string)
   default     = null
 }
@@ -121,7 +119,6 @@ variable "container_soft_delete_retention_days" {
     condition     = var.container_soft_delete_retention_days > 0 && var.container_soft_delete_retention_days < 366
     error_message = "Please enter a number between 1 and 365."
   }
-
 }
 
 variable "enable_versioning" {
@@ -129,11 +126,11 @@ variable "enable_versioning" {
   default     = false
 }
 
-
 variable "change_feed_enabled" {
   description = "(Optional) Is the blob service properties for change feed events enabled?"
   default     = false
 }
+
 variable "allow_nested_items_to_be_public" {
   description = "To give public access to your blob containers Default to `false`"
   default     = false
@@ -147,14 +144,12 @@ variable "last_access_time_enabled" {
 variable "shared_access_key_enabled" {
   description = "(Optional) Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD)"
   default     = true
-
 }
+
 variable "routing" {
   type        = string
   description = "(Optional) Choose between  MicrosoftRouting and InternetRouting.Default is MicrosoftRouting "
   default     = "MicrosoftRouting"
-
-
 }
 
 #----------------------------------Storage types-----------------------------------------------------
@@ -164,17 +159,13 @@ variable "containers_list" {
   type        = list(object({ name = string, access_type = string }))
 
   default = []
-
 }
-
-
 
 variable "file_shares" {
   description = "List of containers to create and their access levels."
   type        = list(object({ name = string, quota = number }))
 
   default = []
-
 }
 
 variable "queues" {
