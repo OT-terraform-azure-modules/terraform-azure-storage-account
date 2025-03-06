@@ -70,11 +70,11 @@ variable "min_tls_version" {
   default     = "TLS1_2"
 }
 
-variable "enable_https_traffic_only" {
-  description = " (optional)Boolean flag which forces HTTPS if enabled. Defaults to true"
-  type        = bool
-  default     = true
-}
+# variable "enable_https_traffic_only" {
+#   description = " (optional)Boolean flag which forces HTTPS if enabled. Defaults to true"
+#   type        = bool
+#   default     = true
+# }
 
 #--------------------------------------Networking-----------------------------------------------------
 
